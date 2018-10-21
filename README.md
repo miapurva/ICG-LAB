@@ -8,11 +8,13 @@ Lab exercises and Project
 - [x] Levy's C curve
 - [x] Koch's Snowflake
 - [ ] IIITDM's gate
-JavaScript:
+
+JavaScript
 - [x] Three concentric squres or rectangles with different colors
 - [x] Lot of circles with gray shades of single color
 - [x] Smiley
 - [x] Intersected colored rectangles
+
 WebGL
 - [ ] Jumping balls with different colors and shades, coming from far away(horizon) to the user
 - [ ] Design a nice coloured Saree with good design supposed by textures and shades and Fractal Graphixs
