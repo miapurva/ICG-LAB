@@ -7,7 +7,7 @@ Lab exercises and Project
 - [x] Dancing stick man
 - [x] Levy's C curve
 - [x] Koch's Snowflake
-- [ ] IIITDM's gate
+- [x] IIITDM's gate
 
 JavaScript
 - [x] Three concentric squres or rectangles with different colors
