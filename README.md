@@ -21,4 +21,4 @@ WebGL
 - [x] Rotating three dimensional cube with each face has an image. Here Six faces will have six images in total. This is like a six face dice in which each face is past with a printed image/photo. When dice rolled, the images do roll.
 
 Animation
--[ ] 3 minute Animation in WebGL
+- [ ] 3 minute Animation in WebGL
