@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>
+	Submission by Yutika Kulwe, CED15I017
+</h1>
+<canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+//circle
+ctx.beginPath();
+ctx.arc(300,150,100,0,2*Math.PI,false)
+ctx.strokeStyle="#fbe400"
+ctx.lineWidth=7;
+ctx.stroke();
+
+//left eye
+ctx.beginPath();
+ctx.arc(250,120,15,0,2*Math.PI,false)
+ctx.fillStyle="#fbe400"
+ctx.fill();
+
+//right eye
+ctx.beginPath();
+ctx.arc(350,120,15,0,2*Math.PI,false)
+ctx.fillStyle="#fbe400"
+ctx.fill();
+
+//smile
+ctx.beginPath();
+ctx.arc(300,140,70,0.25*Math.PI,0.75*Math.PI,false)
+ctx.strokeStyle="#fbe400"
+ctx.lineWidth=7;
+ctx.stroke();
+
+
+
+
+</script> 
+
+</body>
+</html>
