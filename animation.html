@@ -1,0 +1,283 @@
+//Submission by Yutika Kulwe,CED15I017
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Solar System-</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100%; }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script src="js/three.min.js"></script>
+		<script>
+
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );	
+
+			//background
+			var loader = new THREE.CubeTextureLoader();
+			loader.setPath( 'image/MilkyWay/' );
+			var textureCube1 = loader.load( ['dark-s_px.jpg', 'dark-s_nx.jpg', 'dark-s_py.jpg', 'dark-s_ny.jpg', 'dark-s_pz.jpg', 'dark-s_nz.jpg'	] );
+
+			var geometry = new THREE.BoxGeometry(62,38,1 );
+			var material = new THREE.MeshBasicMaterial( { envMap: textureCube1 } );
+			var cube1 = new THREE.Mesh( geometry, material );
+			//scene.add( cube1 );
+			cube1.position.x=0
+			cube1.position.y=0
+
+			//planets
+			var loader = new THREE.CubeTextureLoader();
+			loader.setPath( 'image/Solarsystem/' );
+			
+			var sun = loader.load( ['sun.png', 'sun.png', 'sun.png','sun.png','sun.png','sun.png'	] );
+			var mercury = loader.load( ['mercury.png', 'mercury.png', 'mercury.png','mercury.png','mercury.png','mercury.png'	] );
+			
+			var venus = loader.load( ['venus.png', 'venus.png', 'venus.png','venus.png','venus.png','venus.png'	] );
+			
+			var earth = loader.load( ['earth1.png', 'earth1.png', 'earth1.png','earth1.png','earth1.png','earth1.png'	] );
+			var mars = loader.load( ['mars1.jpeg','mars1.jpeg','mars1.jpeg','mars1.jpeg','mars1.jpeg','mars1.jpeg'	] );
+			var jupiter = loader.load( ['jupiter1.png', 'jupiter1.png', 'jupiter1.png','jupiter1.png','jupiter1.png','jupiter1.png'	] );
+			var saturn = loader.load( ['saturn.png', 'saturn.png', 'saturn.png','saturn.png','saturn.png','saturn.png'	] );
+			var uranus = loader.load( ['uranus1.png','uranus1.png','uranus1.png','uranus1.png','uranus1.png','uranus1.png',] );
+			var neptune = loader.load( ['neptune.png', 'neptune.png', 'neptune.png', 'neptune.png', 'neptune.png', 'neptune.png'	] );
+			
+			var geometry0 = new THREE.SphereGeometry( 1, 32, 32 );
+			var geometry1 = new THREE.SphereGeometry( 1.3, 32, 32 );
+			var geometry2 = new THREE.SphereGeometry( 1.5, 32, 32 );
+			var geometry3 = new THREE.SphereGeometry( 1.7, 32, 32 );
+			var geometry4 = new THREE.SphereGeometry( 2, 32, 32 );
+			var geometry5 = new THREE.SphereGeometry( 2.3, 32, 32 );
+			var geometry6 = new THREE.SphereGeometry( 2.7, 32, 32 );
+			var geometry7 = new THREE.SphereGeometry( 2.8, 32, 32 );
+			var geometry8 = new THREE.SphereGeometry( 4, 32, 32 );
+			
+			var material0 = new THREE.MeshBasicMaterial( { envMap: sun } );
+			var material1 = new THREE.MeshBasicMaterial( { envMap: mercury } );
+			var material2 = new THREE.MeshBasicMaterial( { envMap: venus } );
+			var material3 = new THREE.MeshBasicMaterial( { envMap: earth } );
+			var material4 = new THREE.MeshBasicMaterial( { envMap: mars } );
+			var material5 = new THREE.MeshBasicMaterial( { envMap: jupiter } );
+			var material6 = new THREE.MeshBasicMaterial( { envMap: saturn } );
+			var material7 = new THREE.MeshBasicMaterial( { envMap: uranus } );
+			var material8 = new THREE.MeshBasicMaterial( { envMap: neptune } );
+			
+			var sphere0 = new THREE.Mesh( geometry8, material0 );
+			var sphere1 = new THREE.Mesh( geometry0, material1 );
+			var sphere2 = new THREE.Mesh( geometry2, material2 );
+			var sphere3 = new THREE.Mesh( geometry3, material3 );
+			var sphere4 = new THREE.Mesh( geometry1, material4 );
+			var sphere5 = new THREE.Mesh( geometry7, material5 );
+			var sphere6 = new THREE.Mesh( geometry6, material6 );
+			var sphere7 = new THREE.Mesh( geometry5, material7 );
+			var sphere8 = new THREE.Mesh( geometry4, material8 );
+			
+			sphere0.position.x=0;
+			sphere0.position.y=0;
+			sphere1.position.x=6;
+			//sphere1.position.y=0;
+			sphere1.position.z=0;
+			sphere2.position.x=8;
+			//sphere2.position.y=4;
+			sphere2.position.z=0;
+			sphere3.position.x=10;
+			//sphere3.position.y=5;
+			sphere3.position.z=0;
+			sphere4.position.x=13;
+			//sphere4.position.y=6;
+			sphere4.position.z=0;
+			sphere5.position.x=-16;
+			//sphere5.position.y=-3;
+			sphere5.position.z=0;
+			sphere6.position.x=-18;
+			//sphere6.position.y=3;
+			sphere6.position.z=0;
+			sphere7.position.x=-22;
+			//sphere7.position.y=4;
+			sphere7.position.z=0;
+			sphere8.position.x=-26;
+			//sphere8.position.y=1;
+			sphere8.position.z=0;
+	
+			scene.add( sphere0 );
+			scene.add( sphere1 );
+			scene.add( sphere2 );
+			scene.add( sphere3 );
+			scene.add( sphere4 );
+			scene.add( sphere5 );
+			scene.add( sphere6 );
+			scene.add( sphere7 );
+			scene.add( sphere8 );
+			
+			//saturn ring
+			var geometry = new THREE.TorusGeometry( 3.7, 0.3, 16, 100 );
+			var material = new THREE.MeshBasicMaterial( { color: 0xffffff ,envMap:saturn } );
+			var torus = new THREE.Mesh( geometry, material );
+			scene.add( torus );
+			torus.rotation.x=Math.PI/2.5
+			torus.position.x=-18;
+			torus.position.z=0;
+
+			//Meteors
+			var meteor = loader.load(['meteor.png']);
+			var geometry = new THREE.OctahedronGeometry( 1,1 );
+			var material = new THREE.MeshBasicMaterial( { envMap: sun } );
+			var meteor1 = new THREE.Mesh( geometry, material );
+			var meteor2 = new THREE.Mesh( geometry, material );
+			var meteor3 = new THREE.Mesh( geometry, material );
+			var meteor4 = new THREE.Mesh( geometry, material );
+			var meteor5 = new THREE.Mesh( geometry, material );
+			var meteor6 = new THREE.Mesh( geometry, material );
+			var meteor7 = new THREE.Mesh( geometry, material );
+			var meteor8 = new THREE.Mesh( geometry, material );
+			var meteor9 = new THREE.Mesh( geometry, material );
+			var meteor10 = new THREE.Mesh( geometry, material );
+
+
+
+
+			camera.position.z = 20;
+			camera.position.x = 0;
+			camera.position.y = 0;
+			//dzPerFrame=0.03
+			//dxPerFrame=0.03
+			var t1=0;
+			var t2=0;
+			var t3=0;
+			var t4=0;
+			var t5=0;
+			var t6=0;
+			var t7=0;
+			var t8=0;
+			var rotation_speed= 0.5;
+			var animate = function () 
+			{
+				requestAnimationFrame( animate );
+				t1 += 0.002;
+				t2 += 0.0032;
+				t3 += 0.005;
+				t4 += 0.007;
+				t5 += 0.009;
+				t6 += 0.01;
+				t7 += 0.02;
+				t8 += 0.03;
+				
+				//sun
+				sphere0.rotation.z-=0.02;
+
+				//Mercury
+    			sphere1.position.x = 6*Math.sin(t8) + 0;
+    			sphere1.position.z = 6*Math.cos(t8) + 0;
+    			sphere1.rotation.z -= rotation_speed;
+    			//Venus
+				sphere2.position.x = 8*Math.cos(t7) + 0;
+    			sphere2.position.z = 8*Math.sin(t7) + 0;
+    			sphere2.rotation.z -= rotation_speed;
+    			//Earth
+    			sphere3.position.x = 9*Math.sin(t6) + 0;
+    			sphere3.position.z = 9*Math.cos(t6) + 0;
+    			sphere3.rotation.z -=rotation_speed;
+
+    			//Mars
+    			sphere4.position.x = 10*Math.sin(t5) + 0;
+    			sphere4.position.z = 10*Math.cos(t5) + 0;
+    			sphere4.rotation.z -= rotation_speed;
+
+    			//Jupiter
+    			sphere5.position.x = 12*Math.sin(t4) + 0;
+    			sphere5.position.z = 12*Math.cos(t4) + 0;
+    			sphere5.rotation.z -= rotation_speed;
+
+    			//Saturn
+    			sphere6.position.x = 13*Math.sin(t3) + 0;
+    			sphere6.position.z = 13*Math.cos(t3) + 0;
+    			//sphere6.rotation.z -= rotation_speed;
+    			torus.position.x = 13*Math.sin(t3) + 0;
+    			torus.position.z = 13*Math.cos(t3) + 0;
+    			torus.rotation.z-=rotation_speed;
+    			
+    			//Uranus
+    			sphere7.position.x = 14*Math.cos(t2) + 0;
+    			sphere7.position.z = 14*Math.sin(t2) + 0;
+    			sphere7.rotation.z -= rotation_speed;
+
+    			//Neptune
+    			sphere8.position.x = 16*Math.sin(t1) + 0;
+    			sphere8.position.z = 16*Math.cos(t1) + 0;
+    			sphere8.rotation.z -= rotation_speed;
+				
+				
+
+				scene.add( meteor1 );
+				meteor1.position.x+=0.1
+				scene.add(meteor2);
+				meteor2.position.z+=0.2
+				scene.add(meteor3);
+				meteor3.position.z+=0.15
+				meteor3.position.x-=0.15
+				scene.add(meteor4);
+				meteor4.position.x-=0.2
+				meteor4.position.z-=0.2
+				scene.add(meteor5);
+				meteor5.position.z-=0.1
+				meteor5.position.x-=0.1
+				scene.add(meteor6);
+				meteor6.position.z-=0.15
+				meteor6.position.x+=0.15
+				scene.add(meteor7);
+				meteor7.position.z+=0.1
+				meteor7.position.x+=0.1
+				scene.add(meteor8);
+				meteor8.position.y+=0.13
+				meteor8.position.z+=0.13
+				scene.add(meteor9);
+				meteor9.position.y-=0.15
+				meteor9.position.z+=0.15
+				scene.add(meteor10);
+				meteor10.position.x+=0.01
+				meteor10.position.z+=0.01
+
+				//scene.add(meteor11);
+				//meteor11.position.x+=0.01
+				//meteor11.position.z+=0.01
+				//scene.add(meteor12);
+				//meteor12.position.x+=0.01
+				//meteor12.position.z+=0.01
+				//scene.add(meteor13);
+				//meteor13.position.x+=0.01
+				//meteor13.position.z+=0.01
+				//scene.add(meteor14);
+				//meteor14.position.x+=0.01
+				//meteor14.position.z+=0.01
+				//scene.add(meteor15);
+				//meteor15.position.x+=0.01
+				//meteor15.position.z+=0.01
+				//scene.add(meteor16);
+				//meteor16.position.x+=0.01
+				//meteor16.position.z+=0.01
+				//scene.add(meteor17);
+				//meteor17.position.x+=0.01
+				//meteor17.position.z+=0.01
+				//scene.add(meteor18);
+				//meteor18.position.x+=0.01
+				//meteor18.position.z+=0.01
+				//scene.add(meteor19);
+				//meteor19.position.x+=0.01
+				//meteor19.position.z+=0.01
+				//scene.add(meteor20);
+				//meteor20.position.x+=0.01
+				//meteor20.position.z+=0.01
+				
+				renderer.render( scene, camera );
+			};
+			animate();
+
+		</script>
+	</body>
+</html> 
