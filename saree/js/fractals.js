@@ -1,9 +1,3 @@
-//-----------------------------------------------------------------------
-// Fractals
-//
-// Author: delimitry
-//-----------------------------------------------------------------------
-
 function checkCanvasIsSupported() {
 	canvas = document.getElementById("canvas");
 	canvas.width = 480;
@@ -19,14 +13,7 @@ function checkCanvasIsSupported() {
 
 function render() {
 	context.clearRect(0, 0, canvas.width , canvas.height);
-	// visualize the Mandelbrot set
 	drawMandelbrot();
-	// visualize the Julia set
-	//drawJulia();
-	// visualize Burning Ship fractal
-	//drawBurningShipFractal();
-	// draw Sierpinski carpet
-	//drawSierpinskiCarpet();
 }
 
 function drawMandelbrot() {
