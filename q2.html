@@ -1,0 +1,70 @@
+<!--Submission by Yutika Kulwe, CED15I017, IIITDM Kancheepuram-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Solar System-</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100%; }
+		</style>
+	</head>
+	<body>
+		<!--Submission by Yutika Kulwe,CED15I017-->
+		<script src="js/three.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/three.module.js"></script>
+		<script>
+
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+			
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );	
+			
+			//first square
+			var geometry1 = new THREE.PlaneGeometry( 10,10,2,2 );
+			var material1 = new THREE.MeshBasicMaterial( {color: 0xDAF7A6, side: THREE.DoubleSide} );
+			var plane1 = new THREE.Mesh( geometry1, material1 );
+			scene.add( plane1 );
+			//plane1.position.x=-2.5;
+			//plane1.position.y=-2.5;
+
+			//second square
+			var geometry2 = new THREE.PlaneGeometry( 5,5,2,2 );
+			var material2 = new THREE.MeshBasicMaterial( {color: 0xFFC300, side: THREE.DoubleSide} );
+			var plane2 = new THREE.Mesh( geometry2, material2 );
+			scene.add( plane2 );
+			plane2.position.x=2.5;
+			plane2.position.y=2.5;
+			
+			//third square
+			var geometry3 = new THREE.PlaneGeometry( 5,5,2,2 );
+			var material3 = new THREE.MeshBasicMaterial( {color: 0xFF5733, side: THREE.DoubleSide} );
+			var plane3 = new THREE.Mesh( geometry3, material3 );
+			scene.add( plane3 );
+			plane3.position.x=-2.5;
+			plane3.position.y=2.5;
+			
+			//forth square
+			var geometry4 = new THREE.PlaneGeometry( 5,5,2,2 );
+			var material4 = new THREE.MeshBasicMaterial( {color: 0xC70039 , side: THREE.DoubleSide} );
+			var plane4 = new THREE.Mesh( geometry4, material4 );
+			scene.add( plane4 );
+			plane4.position.x=2.5;
+			plane4.position.y=-2.5;
+
+			camera.position.z = 20;
+
+			
+			var animate = function () 
+			{
+				requestAnimationFrame( animate );
+				//camera.rotation.x+=0.01
+				renderer.render( scene, camera );
+			};
+			animate();
+
+		</script>
+	</body>
+</html> 

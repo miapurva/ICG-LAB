@@ -1,4 +1,3 @@
-//Submission by Yutika Kulwe,CED15I017
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,27 +8,37 @@
 		</style>
 	</head>
 	<body>
+		<!--Submission by Yutika Kulwe,CED15I017-->
 		<script src="js/three.js"></script>
 		<script src="js/three.min.js"></script>
+		<script src="js/three.module.js"></script>
 		<script>
 
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-
+			
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );	
+			//renderer.domElement.style.position =
+  			//canvas.style.position = 'fixed';
+  			//renderer.domElement.style.width = '';
+  			//renderer.domElement.style.height = '';
+  			//renderer.domElement.style.left = '';
 
+			//var controls = new THREE.OrbitControls( camera,renderer.domElement);
+			//controls.enableDamping = true;
+			//controls.dampingFactor = 1;
 			//background
 			var loader = new THREE.CubeTextureLoader();
 			loader.setPath( 'image/MilkyWay/' );
 			var textureCube1 = loader.load( ['dark-s_px.jpg', 'dark-s_nx.jpg', 'dark-s_py.jpg', 'dark-s_ny.jpg', 'dark-s_pz.jpg', 'dark-s_nz.jpg'	] );
 
-			var geometry = new THREE.BoxGeometry(62,38,1 );
+			var geometry = new THREE.BoxGeometry(window.innerWidth,window.innerHeight,-100 );
 			var material = new THREE.MeshBasicMaterial( { envMap: textureCube1 } );
 			var cube1 = new THREE.Mesh( geometry, material );
-			//scene.add( cube1 );
-			cube1.position.x=0
+			scene.add( cube1 );
+			cube1.position.z=-40
 			cube1.position.y=0
 
 			//planets
@@ -56,13 +65,13 @@
 			var geometry5 = new THREE.SphereGeometry( 2.3, 32, 32 );
 			var geometry6 = new THREE.SphereGeometry( 2.7, 32, 32 );
 			var geometry7 = new THREE.SphereGeometry( 2.8, 32, 32 );
-			var geometry8 = new THREE.SphereGeometry( 4, 32, 32 );
+			var geometry8 = new THREE.SphereGeometry( 8, 32, 32 );
 			
 			var material0 = new THREE.MeshBasicMaterial( { envMap: sun } );
-			var material1 = new THREE.MeshBasicMaterial( { envMap: mercury } );
+			var material1 = new THREE.MeshBasicMaterial( { color: 0xFF0000,envMap: mercury } );
 			var material2 = new THREE.MeshBasicMaterial( { envMap: venus } );
 			var material3 = new THREE.MeshBasicMaterial( { envMap: earth } );
-			var material4 = new THREE.MeshBasicMaterial( { envMap: mars } );
+			var material4 = new THREE.MeshBasicMaterial( { color: 0xFF6347, envMap: mars } );
 			var material5 = new THREE.MeshBasicMaterial( { envMap: jupiter } );
 			var material6 = new THREE.MeshBasicMaterial( { envMap: saturn } );
 			var material7 = new THREE.MeshBasicMaterial( { envMap: uranus } );
@@ -126,7 +135,7 @@
 
 			//Meteors
 			var meteor = loader.load(['meteor.png']);
-			var geometry = new THREE.OctahedronGeometry( 1,1 );
+			var geometry = new THREE.OctahedronGeometry( 0.3,1 );
 			var material = new THREE.MeshBasicMaterial( { envMap: sun } );
 			var meteor1 = new THREE.Mesh( geometry, material );
 			var meteor2 = new THREE.Mesh( geometry, material );
@@ -139,12 +148,58 @@
 			var meteor9 = new THREE.Mesh( geometry, material );
 			var meteor10 = new THREE.Mesh( geometry, material );
 
+			document.addEventListener('keydown',Keyboard,false);
+			//document.addEventListener('keyup',Keyboard,false);
+			//document.addEventListener('keyleft',Keyboard,false);
+			//document.addEventListener('keyright',Keyboard,false);
+			function Keyboard() {
+				var speed=0.01;
+				if(event.keyCode==37)//left
+				{
+					camera.position.x+=speed;
+					camera.position.z=0;
+					camera.position.y=0;
+				}
+				else if(event.keyCode==39)//right
+				{
+					camera.position.x-=speed;
+					camera.position.z=0;
+					camera.position.y=0;
+				}
+				else if(event.keyCode==40)//down
+				{
+					camera.position.x=0;
+					camera.position.y-=speed;
+					camera.position.z=0;
+				}
+				else if(event.keyCode==38)//up
+				{
+					camera.position.x=0;
+					camera.position.y+=speed;
+					camera.position.z=0;
+				}
+				else if(event.keyCode==32)//forward
+				{
+					camera.position.x=0;
+					camera.position.z-=speed;
+					camera.position.y=0;
+				}
+				else if(event.keyCode==8)//backward
+				{
+					camera.position.x=0;
+					camera.position.z+=speed;
+					camera.position.y=0;
+				}
+			}
+			//space=32
+			//backspace=8
 
-
-
-			camera.position.z = 20;
-			camera.position.x = 0;
-			camera.position.y = 0;
+			//controls.update();
+			camera.position.z = 65;
+			//camera.position.x = 0;
+			//camera.position.y = -Math.PI*20;
+			camera.position.y=10;
+			camera.rotation.x = -Math.PI/20;
 			//dzPerFrame=0.03
 			//dxPerFrame=0.03
 			var t1=0;
@@ -172,108 +227,46 @@
 				sphere0.rotation.z-=0.02;
 
 				//Mercury
-    			sphere1.position.x = 6*Math.sin(t8) + 0;
-    			sphere1.position.z = 6*Math.cos(t8) + 0;
+    			sphere1.position.x = 10*Math.sin(t8) + 0;
+    			sphere1.position.z = 10*Math.cos(t8) + 0;
     			sphere1.rotation.z -= rotation_speed;
     			//Venus
-				sphere2.position.x = 8*Math.cos(t7) + 0;
-    			sphere2.position.z = 8*Math.sin(t7) + 0;
+				sphere2.position.x = 14*Math.cos(t7) + 0;
+    			sphere2.position.z = 14*Math.sin(t7) + 0;
     			sphere2.rotation.z -= rotation_speed;
     			//Earth
-    			sphere3.position.x = 9*Math.sin(t6) + 0;
-    			sphere3.position.z = 9*Math.cos(t6) + 0;
+    			sphere3.position.x = 20*Math.sin(t6) + 0;
+    			sphere3.position.z = 20*Math.cos(t6) + 0;
     			sphere3.rotation.z -=rotation_speed;
 
     			//Mars
-    			sphere4.position.x = 10*Math.sin(t5) + 0;
-    			sphere4.position.z = 10*Math.cos(t5) + 0;
+    			sphere4.position.x = 24*Math.sin(t5) + 0;
+    			sphere4.position.z = 24*Math.cos(t5) + 0;
     			sphere4.rotation.z -= rotation_speed;
 
     			//Jupiter
-    			sphere5.position.x = 12*Math.sin(t4) + 0;
-    			sphere5.position.z = 12*Math.cos(t4) + 0;
+    			sphere5.position.x = 30*Math.sin(t4) + 0;
+    			sphere5.position.z = 30*Math.cos(t4) + 0;
     			sphere5.rotation.z -= rotation_speed;
 
     			//Saturn
-    			sphere6.position.x = 13*Math.sin(t3) + 0;
-    			sphere6.position.z = 13*Math.cos(t3) + 0;
+    			sphere6.position.x = 38*Math.sin(t3) + 0;
+    			sphere6.position.z = 38*Math.cos(t3) + 0;
     			//sphere6.rotation.z -= rotation_speed;
-    			torus.position.x = 13*Math.sin(t3) + 0;
-    			torus.position.z = 13*Math.cos(t3) + 0;
+    			torus.position.x = 38*Math.sin(t3) + 0;
+    			torus.position.z = 38*Math.cos(t3) + 0;
     			torus.rotation.z-=rotation_speed;
     			
     			//Uranus
-    			sphere7.position.x = 14*Math.cos(t2) + 0;
-    			sphere7.position.z = 14*Math.sin(t2) + 0;
+    			sphere7.position.x = 46*Math.cos(t2) + 0;
+    			sphere7.position.z = 46*Math.sin(t2) + 0;
     			sphere7.rotation.z -= rotation_speed;
 
     			//Neptune
-    			sphere8.position.x = 16*Math.sin(t1) + 0;
-    			sphere8.position.z = 16*Math.cos(t1) + 0;
+    			sphere8.position.x = 53*Math.sin(t1) + 0;
+    			sphere8.position.z = 53*Math.cos(t1) + 0;
     			sphere8.rotation.z -= rotation_speed;
-				
-				
-
-				scene.add( meteor1 );
-				meteor1.position.x+=0.1
-				scene.add(meteor2);
-				meteor2.position.z+=0.2
-				scene.add(meteor3);
-				meteor3.position.z+=0.15
-				meteor3.position.x-=0.15
-				scene.add(meteor4);
-				meteor4.position.x-=0.2
-				meteor4.position.z-=0.2
-				scene.add(meteor5);
-				meteor5.position.z-=0.1
-				meteor5.position.x-=0.1
-				scene.add(meteor6);
-				meteor6.position.z-=0.15
-				meteor6.position.x+=0.15
-				scene.add(meteor7);
-				meteor7.position.z+=0.1
-				meteor7.position.x+=0.1
-				scene.add(meteor8);
-				meteor8.position.y+=0.13
-				meteor8.position.z+=0.13
-				scene.add(meteor9);
-				meteor9.position.y-=0.15
-				meteor9.position.z+=0.15
-				scene.add(meteor10);
-				meteor10.position.x+=0.01
-				meteor10.position.z+=0.01
-
-				//scene.add(meteor11);
-				//meteor11.position.x+=0.01
-				//meteor11.position.z+=0.01
-				//scene.add(meteor12);
-				//meteor12.position.x+=0.01
-				//meteor12.position.z+=0.01
-				//scene.add(meteor13);
-				//meteor13.position.x+=0.01
-				//meteor13.position.z+=0.01
-				//scene.add(meteor14);
-				//meteor14.position.x+=0.01
-				//meteor14.position.z+=0.01
-				//scene.add(meteor15);
-				//meteor15.position.x+=0.01
-				//meteor15.position.z+=0.01
-				//scene.add(meteor16);
-				//meteor16.position.x+=0.01
-				//meteor16.position.z+=0.01
-				//scene.add(meteor17);
-				//meteor17.position.x+=0.01
-				//meteor17.position.z+=0.01
-				//scene.add(meteor18);
-				//meteor18.position.x+=0.01
-				//meteor18.position.z+=0.01
-				//scene.add(meteor19);
-				//meteor19.position.x+=0.01
-				//meteor19.position.z+=0.01
-				//scene.add(meteor20);
-				//meteor20.position.x+=0.01
-				//meteor20.position.z+=0.01
-				
+								
 				renderer.render( scene, camera );
 			};
 			animate();
