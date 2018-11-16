@@ -15,7 +15,7 @@ white=(255,255,255)
 offset =60
 for i in range(0,5):
 	for j in range(0,20):
-		pygame.draw.circle(screen,black,(30+offset*j,30+offset*i),30,3)
+		pygame.draw.circle(screen,black,(30+offset*j,30+offset*i),28,3)
 
 
 pygame.display.flip()

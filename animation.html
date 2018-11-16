@@ -148,53 +148,6 @@
 			var meteor9 = new THREE.Mesh( geometry, material );
 			var meteor10 = new THREE.Mesh( geometry, material );
 
-			document.addEventListener('keydown',Keyboard,false);
-			//document.addEventListener('keyup',Keyboard,false);
-			//document.addEventListener('keyleft',Keyboard,false);
-			//document.addEventListener('keyright',Keyboard,false);
-			function Keyboard() {
-				var speed=0.01;
-				if(event.keyCode==37)//left
-				{
-					camera.position.x+=speed;
-					camera.position.z=0;
-					camera.position.y=0;
-				}
-				else if(event.keyCode==39)//right
-				{
-					camera.position.x-=speed;
-					camera.position.z=0;
-					camera.position.y=0;
-				}
-				else if(event.keyCode==40)//down
-				{
-					camera.position.x=0;
-					camera.position.y-=speed;
-					camera.position.z=0;
-				}
-				else if(event.keyCode==38)//up
-				{
-					camera.position.x=0;
-					camera.position.y+=speed;
-					camera.position.z=0;
-				}
-				else if(event.keyCode==32)//forward
-				{
-					camera.position.x=0;
-					camera.position.z-=speed;
-					camera.position.y=0;
-				}
-				else if(event.keyCode==8)//backward
-				{
-					camera.position.x=0;
-					camera.position.z+=speed;
-					camera.position.y=0;
-				}
-			}
-			//space=32
-			//backspace=8
-
-			//controls.update();
 			camera.position.z = 65;
 			//camera.position.x = 0;
 			//camera.position.y = -Math.PI*20;
