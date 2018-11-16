@@ -25,5 +25,5 @@ Animation
   --> animation.html
 
 Lab exam
-- [x] Q1- 100 non-intersecting circles --> q1.html
+- [x] Q1- 100 non-intersecting circles --> q1.py
 - [x] Q2- Each square divided into 4 sub square and each sub square has a different color --> q2.html
